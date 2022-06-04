@@ -1,5 +1,6 @@
 import "./App.css";
 import { BiArchive } from "react-icons/bi";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <BiArchive className="inline-block text-red-400" />
         Your Appointments
       </h1>
+      <Search />
     </div>
   );
 }
