@@ -1,6 +1,12 @@
 import { BiCheck } from "react-icons/bi";
 
-const DropDown = ({ toogle }) => {
+const DropDown = ({
+  toogle,
+  sortBy,
+  onSortByChange,
+  orderBy,
+  onOrderByChange,
+}) => {
   if (!toogle) {
     return null;
   }
@@ -16,34 +22,39 @@ const DropDown = ({ toogle }) => {
         aria-labelledby="options-menu"
       >
         <div
+          onClick={() => onSortByChange("petName")}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
           role="menuitem"
         >
-          Pet Name <BiCheck />
+          Pet Name {sortBy === "petName" && <BiCheck />}
         </div>
         <div
+          onClick={() => onSortByChange("ownerName")}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
           role="menuitem"
         >
-          Owner Name <BiCheck />
+          Owner Name {sortBy === "ownerName" && <BiCheck />}
         </div>
         <div
+          onClick={() => onSortByChange("Date")}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
           role="menuitem"
         >
-          Date <BiCheck />
+          Date {sortBy === "aptDate" && <BiCheck />}
         </div>
         <div
+          onClick={() => onSortByChange("asc")}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer border-gray-1 border-t-2"
           role="menuitem"
         >
-          Asc <BiCheck />
+          Asc {orderBy === "asc" && <BiCheck />}
         </div>
         <div
+          onClick={() => onSortByChange("desc")}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
           role="menuitem"
         >
-          Desc <BiCheck />
+          Desc {orderBy === "desc" && <BiCheck />}
         </div>
       </div>
     </div>
